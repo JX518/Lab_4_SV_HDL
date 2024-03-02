@@ -7,4 +7,4 @@ git remote add 333Lab4 git@github.com:JX518/Lab_4_SV_HDL.git
 git branch -M justin
 git add /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/*
 git commit
-git push -u 333Lab4 main
+git push -u 333Lab4 justin
