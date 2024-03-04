@@ -7,6 +7,7 @@
 	// loading from mem
 
 	// selecting immediate
+
 module ALU(
 	input logic [2:0] op,
 	input logic [2:0] ra,
