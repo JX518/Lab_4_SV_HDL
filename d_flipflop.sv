@@ -1,5 +1,5 @@
-module dflipflop
-  #(parameter int size = 1 ) // Our first module parameter! Now everything is squishy
+module d_flipflop
+  #(parameter int size = 1) // Our first module parameter! Now everything is squishy
    (
     input  logic [size-1:0] d, 
     input  logic 	    clk, 
