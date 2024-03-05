@@ -35,14 +35,14 @@ module register_file(
 
 	always_comb begin
 	   	unique case(RD)
-	     		3'd0: en[0] = write & debug_en; 
-	     		3'd1: en[1] = write & debug_en; 
-	     		3'd2: en[2] = write & debug_en; 
-	     		3'd3: en[3] = write & debug_en; 
-	     		3'd4: en[4] = write & debug_en; 
-	     		3'd5: en[5] = write & debug_en; 
-	     		3'd6: en[6] = write & debug_en; 
-	     		3'd7: en[7] = write & debug_en; 	     
+	     	  3'd0: en [7:0] = 8'b0000_0001;
+	     	  3'd1: en [7:0] = 8'b0000_0010;
+	     	  3'd2: en [7:0] = 8'b0000_0100;
+	     	  3'd3: en [7:0] = 8'b0000_1000;
+	     	  3'd4: en [7:0] = 8'b0001_0000;
+	     	  3'd5: en [7:0] = 8'b0010_0000;
+	     	  3'd6: en [7:0] = 8'b0100_0000;
+	     	  3'd7: en [7:0] = 8'b1000_0000;
 	   	endcase
 	 always
    	
