@@ -33,7 +33,7 @@ module register_file(
    
     
    	assign write = debug_en & (op < 3'b101); //debug enable allows for set clocking speeds
-   	assign enable = {write_to, write_to, write_to, write_to, write_to, write_to, write_to, write_to} && write_to; //and it so that we can make sure its only writing on write en
+   	assign enable = {write, write, write, write, write, write, write, write} && write_to; //and it so that we can make sure its only writing on write en
    
    	// decoder for write enable
 	always_comb begin
