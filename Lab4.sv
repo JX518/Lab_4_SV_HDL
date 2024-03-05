@@ -38,12 +38,14 @@ module Lab4(
    
 	(* ram_init_file = "Lab4.mif" *) logic [11:0] mem[63:0];
 	
-	assign instruction = mem[address];   
-	assign op_code = instruction[11:9]
-	assign RA = instruction[8:6]
-	assign RB = instruction[5:3]
-	assign RD = instruction[2:0]
+	assign instruction = mem[address];
+	assign op_code = instruction[11:9];
+	assign RA = instruction[8:6];
+	assign RB = instruction[5:3];
+	assign RD = instruction[2:0];
+	assign LED = address;
 		 
+
 	register_file reg_file(
 		.op(op_code),
 		.RA(RA),
@@ -53,7 +55,7 @@ module Lab4(
 		.debug_en(),
 		.A(A),
 		.B(B),
-		.Z(registers);
+		.Z(registers)
 	);	
    
 	  
@@ -64,17 +66,20 @@ module Lab4(
 		.RD(RD),
 		.A(A),
 		.B(B), 
+		.PC(address)
 		.d(ALU_out)	  
 	);
    
 	 
-	PC program_counter(	
-		.clk(clk)
-		.jump()
-		.inc()
-		.count()
+	program_counter PC(	
+		.op(op_code),
+		.jump_addr(ALU_out),
+		.clk(clk),
+		.rst(rst),
+		.en(),
+		.address(address) 
 	);
-   
+   	
 	
    
 	/* Handles debugging switches
