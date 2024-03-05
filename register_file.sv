@@ -1,5 +1,5 @@
-/* register file stores
  * information in the registers
+/* register file stores
  * 
  * Inputs 
  * 	op		opcode, assigns enable based on this
@@ -24,28 +24,32 @@ module register_file(
 
 	output logic [5:0] A,
 	output logic [5:0] B,
-	output logic [5:0] Z [7:0];
+	output logic [5:0] Z [7:0]
 );	
-   	logic [7:0] en;
+   	logic [7:0] write_to;
+   	logic [7:0] enable;
    	logic [5:0] d;
    	logic	    write;
    
     
    	assign write = debug_en & (op < 3'b101); //debug enable allows for set clocking speeds
-
+   	assign enable = {write, write, write, write, write, write, write, write} && write_to; //and it so that we can make sure its only writing on write en
+   
+   	// decoder for write enable
 	always_comb begin
 	   	unique case(RD)
-	     		3'd0: en[0] = write & debug_en; 
-	     		3'd1: en[1] = write & debug_en; 
-	     		3'd2: en[2] = write & debug_en; 
-	     		3'd3: en[3] = write & debug_en; 
-	     		3'd4: en[4] = write & debug_en; 
-	     		3'd5: en[5] = write & debug_en; 
-	     		3'd6: en[6] = write & debug_en; 
-	     		3'd7: en[7] = write & debug_en; 	     
+	     	  3'd0: write_to [7:0] = 8'b0000_0001;
+	     	  3'd1: write_to [7:0] = 8'b0000_0010;
+	     	  3'd2: write_to [7:0] = 8'b0000_0100;
+	     	  3'd3: write_to [7:0] = 8'b0000_1000;
+	     	  3'd4: write_to [7:0] = 8'b0001_0000;
+	     	  3'd5: write_to [7:0] = 8'b0010_0000;
+	     	  3'd6: write_to [7:0] = 8'b0100_0000;
+	     	  3'd7: write_to [7:0] = 8'b1000_0000;
 	   	endcase
-	 always
-   	
+	always
+
+	// read register A
 	always_comb begin
 	   	unique case(RA)
 		  	3'd0:A = Z[0];		  
@@ -58,7 +62,8 @@ module register_file(
 		  	3'd7:A = Z[7];		  
 		endcase
 	end
-	
+
+	// read register B
 	always_comb begin
 		unique case(RB)
 		  	3'd0:B = Z[0];
@@ -75,7 +80,7 @@ module register_file(
    	
 	d_flipflop #(6) register0(
 		.d(d), 
-		.en(en[0]), 
+		.en(write_to[0]), 
 		.clk(clk), 
 		.q(Z[0]), 
 		.rst(rst)
@@ -83,7 +88,7 @@ module register_file(
 
 	d_flipflop #(6) register1(
 		.d(d), 
-		.en(en[1]), 
+		.en(write_to[1]), 
 		.clk(clk), 
 		.q(Z[1]), 
 		.rst(rst)
@@ -91,7 +96,7 @@ module register_file(
 
 	d_flipflop #(6) register2(
 		.d(d), 
-		.en(en[2]), 
+		.en(write_to[2]), 
 		.clk(clk), 
 		.q(Z[2]), 
 		.rst(rst)
@@ -99,7 +104,7 @@ module register_file(
 
 	d_flipflop #(6) register3(
 		.d(d), 
-		.en(en[3]), 
+		.en(write_to[3]), 
 		.clk(clk), 
 		.q(Z[3]), 
 		.rst(rst)
@@ -107,7 +112,7 @@ module register_file(
 
 	d_flipflop #(6) register4(
 		.d(d), 
-		.en(en[4]), 
+		.en(write_to[4]), 
 		.clk(clk), 
 		.q(Z[4]), 
 		.rst(rst)
@@ -115,7 +120,7 @@ module register_file(
 
 	d_flipflop #(6) register5(
 		.d(d), 
-		.en(en[5]), 
+		.en(write_to[5]), 
 		.clk(clk), 
 		.q(Z[5]), 
 		.rst(rst)
@@ -123,7 +128,7 @@ module register_file(
 
 	d_flipflop #(6) register6(
 		.d(d), 
-		.en(en[6]), 
+		.en(write_to[6]), 
 		.clk(clk), 
 		.q(Z[6]), 
 		.rst(rst)
@@ -131,7 +136,7 @@ module register_file(
 
 	d_flipflop #(6) register7(
 		.d(d), 
-		.en(en[7]), 
+		.en(write_to[7]), 
 		.clk(clk), 
 		.q(Z[7]), 
 		.rst(rst)

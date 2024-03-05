@@ -26,33 +26,50 @@ module Lab4(
 	logic output [3:0]
 );
 	logic [11:0] instruction;	// 12 but instruction 	
-	logic [5:0]	address; 	// 2^6 = 64
-	
+	logic [5:0]  address; 	// 2^6 = 64
+   	logic [5:0]  registers [7:0];
+   	logic [2:0]  opcode;
+   	logic [2:0]  RA;
+   	logic [2:0]  RB;
+   	logic [2:0]  RD;
+   	logic [5:0]  A; 
+   	logic [5:0]  B;
+	logic [5:0]  ALU_out;
+   
 	(* ram_init_file = "Lab4.mif" *) logic [11:0] mem[63:0];
 	
 	assign instruction = mem[address];   
-	d_flipflop_array()
-  	
-
-	register_file(	.data_in(), 
-			.RA(), 
-			.RB(), 
-			.RD(), 
-			.A(),
-			.B()
-	);
+	assign op_code = instruction[11:9]
+	assign RA = instruction[8:6]
+	assign RB = instruction[5:3]
+	assign RD = instruction[2:0]
+		 
+	register_file reg_file(
+		.op(op_code),
+		.RA(RA),
+		.RB(RB),
+		.RD(RD),
+		.rst(~SW0),
+		.debug_en(),
+		.A(A),
+		.B(B),
+		.Z(registers);
+	);	
    
 	  
-	ALU(	.op(),
-		.RA(),
-		.RB(),
-		.A(),
-		.B(),
-		.data_out()
+	ALU ALU_unit(	
+		.op(op_code),
+		.RA(RA),
+		.RB(RB),
+		.RD(RD),
+		.A(A),
+		.B(B), 
+		.d(ALU_out)	  
 	);
    
 	 
-	PC(	.clk()
+	PC program_counter(	
+		.clk(clk)
 		.jump()
 		.inc()
 		.count()
