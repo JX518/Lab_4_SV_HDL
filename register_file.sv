@@ -1,5 +1,5 @@
-/* register file stores
  * information in the registers
+/* register file stores
  * 
  * Inputs 
  * 	op		opcode, assigns enable based on this
@@ -24,7 +24,7 @@ module register_file(
 
 	output logic [5:0] A,
 	output logic [5:0] B,
-	output logic [5:0] Z [7:0];
+	output logic [5:0] Z [7:0]
 );	
    	logic [7:0] write_to;
    	logic [7:0] enable;
