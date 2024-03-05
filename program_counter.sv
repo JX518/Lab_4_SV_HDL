@@ -15,7 +15,7 @@ module program_counter
    logic 	jump;
    logic [6:0] cnt_nxt;
 
-   assign jump = (opcode > 3'b100); // handles jump
+   assign jump = (opcode > 3'b100) || (opcode == 3'b000); // handles jump
    assign cnt_nxt = (cnt == 6'd63) ? 6'd63 : cnt + 1'b1; // handles count + 1
 
    dff #(6) myDff( 
