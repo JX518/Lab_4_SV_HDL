@@ -31,15 +31,16 @@ module ALU(
 	always_comb begin	   	
 		unique case(op)
 			3'd0: d = PC;
-			3'd1: d = {RA,RB}
-			3'd2: d = A + B
-			3'd3: d = A + RB
-			3'd4: d = A * B
+			3'd1: d = {RA,RB};
+			3'd2: d = A + B;
+			3'd3: d = A + RB;
+			3'd4: d = A * B;
 			3'd5: d = (A >= B) ? 
 				(PC + RD) : 
 				(PC + 1'b1);
-			3'd6: d = {RA,RB}
+			3'd6: d = {RA,RB};
 			3'd7: d = PC + 1'b1;
-		end
-	endcase
+		endcase
+	end
 		
+endmodule

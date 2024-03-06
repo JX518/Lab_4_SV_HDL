@@ -11,32 +11,32 @@
  */
 
 module Lab4(
-	logic input clk,
-	logic input SW0, 
-	logic input SW1, 
-	logic input SW2, 
-	logic input SW3, 
-	logic input SW4, 
-	logic input SW5, 
-	logic input SW6, 
-	logic input SW7,
-	logic input KEY0,	    
-	logic output [7:0] LED,
-	logic output [3:0] HEX [6:0]
+	 input logic clk,
+	 input logic SW0, 
+	 input logic SW1, 
+	 input logic SW2, 
+	 input logic SW3, 
+	 input logic SW4, 
+	 input logic SW5, 
+	 input logic SW6, 
+	 input logic SW7,
+	 input logic KEY0,	    
+	 output logic [7:0] LED,
+	 output logic [3:0] HEX [6:0]
 );
    
 	logic [11:0] instruction;	// 12 but instruction 	
 	logic [5:0]  address; 	// 2^6 = 64
-   	logic [2:0]  opcode;
+   logic [2:0]  op_code;
 	logic [2:0]  RA;
-   	logic [2:0]  RB;
-   	logic [2:0]  RD;
-   	logic [5:0]  A; 
-   	logic [5:0]  B;
+   logic [2:0]  RB;
+   logic [2:0]  RD;
+   logic [5:0]  A; 
+   logic [5:0]  B;
 	logic [5:0]  ALU_out;
 	logic enable_clock;	
 	
-   	logic [5:0]  registers [2:0]; // 2^3 = 8
+   logic [5:0]  registers [7:0]; // 2^3 = 8
 	
 	logic [25:0] single_clock_counter;
 	logic [11:0] display;	
@@ -92,6 +92,7 @@ module Lab4(
 		.RB(RB),
 		.RD(RD),
 		.rst(~SW0),
+		.clk(clk),
 		.debug_en(enable_clock),
 		.A(A),
 		.B(B),
@@ -106,7 +107,7 @@ module Lab4(
 		.RD(RD),
 		.A(A),
 		.B(B), 
-		.PC(address)
+		.PC(address),
 		.d(ALU_out)	  
 	);
    
@@ -115,29 +116,29 @@ module Lab4(
 		.op(op_code),
 		.jump_addr(ALU_out),
 		.clk(clk),
-		.rst(rst),
+		.rst(~SW0),
 		.en(enable_clock),
 		.address(address) 
 	);
 
 	//IR will need to use 4 hex displays		
 	hexDisp hex_display0(
-		.sw(display[0:2]), 
+		.sw(display[2:0]), 
 		.hex(HEX[0])
 	);	
 
 	hexDisp hex_display1(
-		.sw(display[3:5]), 
+		.sw(display[5:3]), 
 		.hex(HEX[1])
 	);	
 
 	hexDisp hex_display2(
-		.sw(display[6:8]), 
+		.sw(display[8:6]), 
 		.hex(HEX[2])
 	);	
    
 	hexDisp hex_display3(
-		.sw(display[9:11]), 
+		.sw(display[11:9]), 
 		.hex(HEX[3])
 	);	
 	
