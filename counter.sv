@@ -17,7 +17,13 @@ module counter
    
    logic [b-1:0] 	 cnt_nxt ;
    
-   dff #(b) myDff( .d(cnt_nxt), .clk, .rst, .en(1'b1), .q(cnt));
+   d_flipflop #(b) dff(
+		.d(cnt_nxt), 
+		.clk(clk), 
+		.rst(rst), 
+		.en(1'b1), 
+		.q(cnt)
+	);
 
    always_comb begin 
      unique case ({inc,dec})

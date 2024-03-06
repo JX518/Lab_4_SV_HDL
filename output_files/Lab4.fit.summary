@@ -1,4 +1,4 @@
-Fitter Status : Successful - Mon Mar  4 07:33:53 2024
+Fitter Status : Successful - Tue Mar  5 21:10:33 2024
 Quartus Prime Version : 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 Revision Name : Lab4
 Top-level Entity Name : Lab4
@@ -7,7 +7,7 @@ Device : 5CEBA4F23C7
 Timing Models : Final
 Logic utilization (in ALMs) : 1 / 18,480 ( < 1 % )
 Total registers : 0
-Total pins : 1 / 224 ( < 1 % )
+Total pins : 46 / 224 ( 21 % )
 Total virtual pins : 0
 Total block memory bits : 0 / 3,153,920 ( 0 % )
 Total RAM Blocks : 0 / 308 ( 0 % )

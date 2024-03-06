@@ -1,5 +1,5 @@
- * information in the registers
-/* register file stores
+/* information in the registers
+ * register file stores
  * 
  * Inputs 
  * 	op		opcode, assigns enable based on this
@@ -19,8 +19,9 @@ module register_file(
 	input logic [2:0]  RA,
 	input logic [2:0]  RB,
 	input logic [2:0]  RD,
-	input logic	   rst,
-	input logic	   debug_en,
+	input logic 		clk,
+	input logic	   	rst,
+	input logic	   	debug_en,
 
 	output logic [5:0] A,
 	output logic [5:0] B,
@@ -47,7 +48,7 @@ module register_file(
 	     	  3'd6: write_to [7:0] = 8'b0100_0000;
 	     	  3'd7: write_to [7:0] = 8'b1000_0000;
 	   	endcase
-	always
+	end
 
 	// read register A
 	always_comb begin
@@ -73,10 +74,9 @@ module register_file(
 		  	3'd4:B = Z[4];
 		  	3'd5:B = Z[5];
 		  	3'd6:B = Z[6];
-		  	3'd7:B = z[7];
+		  	3'd7:B = Z[7];
 		endcase
 	end
-   
    	
 	d_flipflop #(6) register0(
 		.d(d), 
@@ -142,9 +142,4 @@ module register_file(
 		.rst(rst)
 	);
 
-
-
-
-
-
-  
+endmodule
