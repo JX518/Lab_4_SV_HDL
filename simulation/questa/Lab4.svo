@@ -17,7 +17,7 @@
 // PROGRAM "Quartus Prime"
 // VERSION "Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition"
 
-// DATE "03/05/2024 23:50:34"
+// DATE "03/05/2024 23:59:28"
 
 // 
 // Device: Altera 5CEBA4F23C7 Package FBGA484
@@ -57,9 +57,6 @@ output 	logic [3:0] HEX [6:0];
 
 // Design Ports Information
 // SW1	=>  Location: PIN_V13,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// SW5	=>  Location: PIN_AB15,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// SW6	=>  Location: PIN_AA14,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// SW7	=>  Location: PIN_AA13,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // LED[0]	=>  Location: PIN_AA2,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // LED[1]	=>  Location: PIN_AA1,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // LED[2]	=>  Location: PIN_W2,	 I/O Standard: 2.5 V,	 Current Strength: Default
@@ -96,6 +93,9 @@ output 	logic [3:0] HEX [6:0];
 // HEX[6][1]	=>  Location: PIN_U22,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // HEX[6][2]	=>  Location: PIN_AB21,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // HEX[6][3]	=>  Location: PIN_V19,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// SW5	=>  Location: PIN_AB15,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// SW6	=>  Location: PIN_AA14,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// SW7	=>  Location: PIN_AA13,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // KEY0	=>  Location: PIN_U7,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // SW3	=>  Location: PIN_T12,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // SW4	=>  Location: PIN_AA15,	 I/O Standard: 2.5 V,	 Current Strength: Default

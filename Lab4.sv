@@ -40,7 +40,7 @@ module Lab4(
 	
    logic [25:0] single_clock_counter;
    logic [11:0] display;	
-   logic [11:0] display_registers;
+   logic [11:0] display_register;
 	
 	(* ram_init_file = "Lab4.mif" *) logic [11:0] mem[63:0];
 
@@ -66,7 +66,7 @@ module Lab4(
 	 */   
 	always_comb begin 
 		unique case ({SW4,SW3,SW2})
-			3'd0: display = display_registers; //registers [{SW7,SW6,SW5}]; 
+			3'd0: display = display_register; //registers [{SW7,SW6,SW5}]; 
 			3'd1: display = instruction;
 			3'd2: display = address;
 			3'd3: display = op_code;
