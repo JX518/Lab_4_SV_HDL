@@ -1,5 +1,5 @@
-/* 	SW0 		Async, high reset
- * Inputs 
+/* Inputs 
+ * 	SW0 		Async, high reset
  * 	SW1 		Single step mode
  * 	SW2,SW3,SW4 	Debug output, refer to lab manual
  * 	SW5,SW6,SW7 	display register file, register number {SW7,SW6,SW5}
@@ -7,7 +7,6 @@
  * 	KEY0 		Single step advance
  * Outputs
  * 	LED[7:0] 	Default, indicates address of instruction
- * 	
  */
 
 module Lab4(
@@ -50,7 +49,7 @@ module Lab4(
 	assign RB = instruction[5:3];
 	assign RD = instruction[2:0];
  	assign enable_clock = SW0 ? 
-		KEY0 & (single_clock_counter == '0) : 1'b1;	
+		(SW1 & KEY0 & (single_clock_counter == '0)) : ~SW1;
 
 	assign LED = address;
 		 
