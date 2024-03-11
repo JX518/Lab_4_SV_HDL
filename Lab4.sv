@@ -1,5 +1,5 @@
-/* 	SW0 		Async, high reset
- * Inputs 
+/* Inputs 
+ * 	SW0 		Async, high reset
  * 	SW1 		Single step mode
  * 	SW2,SW3,SW4 	Debug output, refer to lab manual
  * 	SW5,SW6,SW7 	display register file, register number {SW7,SW6,SW5}
@@ -7,7 +7,6 @@
  * 	KEY0 		Single step advance
  * Outputs
  * 	LED[7:0] 	Default, indicates address of instruction
- * 	
  */
 
 module Lab4(
@@ -25,21 +24,22 @@ module Lab4(
 	 output logic [3:0] HEX [6:0]
 );
    
-	logic [11:0] instruction;	// 12 but instruction 	
-	logic [5:0]  address; 	// 2^6 = 64
+   logic [11:0] instruction;	// 12 but instruction 	
+   logic [5:0]  address; 	// 2^6 = 64
    logic [2:0]  op_code;
-	logic [2:0]  RA;
+   logic [2:0]  RA;
    logic [2:0]  RB;
    logic [2:0]  RD;
    logic [5:0]  A; 
    logic [5:0]  B;
-	logic [5:0]  ALU_out;
-	logic enable_clock;	
+   logic [5:0]  ALU_out;
+   logic enable_clock;	
 	
    logic [5:0]  registers [7:0]; // 2^3 = 8
 	
-	logic [25:0] single_clock_counter;
-	logic [11:0] display;	
+   logic [25:0] single_clock_counter;
+   logic [11:0] display;	
+   logic [11:0] display_register;
 	
 	(* ram_init_file = "Lab4.mif" *) logic [11:0] mem[63:0];
 
@@ -49,7 +49,7 @@ module Lab4(
 	assign RB = instruction[5:3];
 	assign RD = instruction[2:0];
  	assign enable_clock = SW0 ? 
-		KEY0 & (single_clock_counter == '0) : 1'b1;	
+		(SW1 & KEY0 & (single_clock_counter == '0)) : ~SW1;
 
 	assign LED = address;
 		 
@@ -65,7 +65,7 @@ module Lab4(
 	 */   
 	always_comb begin 
 		unique case ({SW4,SW3,SW2})
-			3'd0: display = registers [{SW7,SW6,SW5}];
+			3'd0: display = display_register; //registers [{SW7,SW6,SW5}]; 
 			3'd1: display = instruction;
 			3'd2: display = address;
 			3'd3: display = op_code;
@@ -75,6 +75,19 @@ module Lab4(
 			3'd7: display = '0;
 		endcase 
 	end
+	
+	always_comb begin 
+		unique case ({SW7,SW6,SW5})
+			3'd0: display_register = registers[0];
+			3'd1: display_register = registers[1];
+			3'd2: display_register = registers[2];
+			3'd3: display_register = registers[3];
+			3'd4: display_register = registers[4];
+			3'd5: display_register = registers[5];
+			3'd6: display_register = registers[6];
+			3'd7: display_register = registers[7];
+		endcase 
+	end	
 	  
    	//this counter is for when in single clock mode the fastest it will clock is once per second
 	counter #(5_000_000) single_clock(
