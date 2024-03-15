@@ -47,10 +47,6 @@ module Lab4(
 	(* ram_init_file = "Lab4.mif" *) logic [11:0] mem[63:0];
 
 	assign instruction = mem[address];
-	assign op_code = instruction[11:9];
-	assign RA = instruction[8:6];
-	assign RB = instruction[5:3];
-	assign RD = instruction[2:0];
  	assign enable_clock = SW0 ? 
 		(SW1 & KEY0 & (single_clock_counter == '0)) : ~SW1;
 
@@ -92,7 +88,15 @@ module Lab4(
 		endcase 
 	end	
 	  
+	IR instruction_register(
    	//this counter is for when in single clock mode the fastest it will clock is once per second
+		.instruction(instruction)
+		.opcode(op_code)
+		.RA(RA)
+		.RB(RB)
+		.RD(RD)
+	);	
+
 	counter #(5_000_000) single_clock(
 		.inc(1'b1),
 		.dec(1'b0),
