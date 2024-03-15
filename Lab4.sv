@@ -21,7 +21,10 @@ module Lab4(
 	 input logic SW7,
 	 input logic KEY0,	    
 	 output logic [7:0] LED,
-	 output logic [3:0] HEX [6:0]
+	 output logic [6:0] HEX00,
+	 output logic [6:0] HEX01,
+	 output logic [6:0] HEX02,
+	 output logic [6:0] HEX03
 );
    
    logic [11:0] instruction;	// 12 but instruction 	
@@ -137,22 +140,22 @@ module Lab4(
 	//IR will need to use 4 hex displays		
 	hexDisp hex_display0(
 		.sw(display[2:0]), 
-		.hex(HEX[0])
+		.hex(HEX00)
 	);	
 
 	hexDisp hex_display1(
 		.sw(display[5:3]), 
-		.hex(HEX[1])
+		.hex(HEX01)
 	);	
 
 	hexDisp hex_display2(
 		.sw(display[8:6]), 
-		.hex(HEX[2])
+		.hex(HEX02)
 	);	
    
 	hexDisp hex_display3(
 		.sw(display[11:9]), 
-		.hex(HEX[3])
+		.hex(HEX03)
 	);	
 	
 endmodule
