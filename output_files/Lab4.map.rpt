@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Lab4
-Tue Mar  5 23:59:06 2024
+Tue Mar 19 17:42:07 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -13,8 +13,8 @@ Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. Registers Removed During Synthesis
-  9. Removed Registers Triggering Further Register Optimizations
+  8. Analysis & Synthesis DSP Block Usage Summary
+  9. Registers Removed During Synthesis
  10. General Register Statistics
  11. Multiplexer Restructuring Statistics (Restructuring Performed)
  12. Parameter Settings for User Entity Instance: counter:single_clock
@@ -34,11 +34,18 @@ Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
  26. Port Connectivity Checks: "hexDisp:hex_display0"
  27. Port Connectivity Checks: "program_counter:PC|d_flipflop:myDff"
  28. Port Connectivity Checks: "program_counter:PC"
- 29. Port Connectivity Checks: "counter:single_clock|d_flipflop:dff"
- 30. Port Connectivity Checks: "counter:single_clock"
- 31. Post-Synthesis Netlist Statistics for Top Partition
- 32. Elapsed Time Per Partition
- 33. Analysis & Synthesis Messages
+ 29. Port Connectivity Checks: "register_file:reg_file|d_flipflop:register7"
+ 30. Port Connectivity Checks: "register_file:reg_file|d_flipflop:register6"
+ 31. Port Connectivity Checks: "register_file:reg_file|d_flipflop:register5"
+ 32. Port Connectivity Checks: "register_file:reg_file|d_flipflop:register4"
+ 33. Port Connectivity Checks: "register_file:reg_file|d_flipflop:register3"
+ 34. Port Connectivity Checks: "register_file:reg_file|d_flipflop:register2"
+ 35. Port Connectivity Checks: "register_file:reg_file|d_flipflop:register1"
+ 36. Port Connectivity Checks: "counter:single_clock|d_flipflop:dff"
+ 37. Port Connectivity Checks: "counter:single_clock"
+ 38. Post-Synthesis Netlist Statistics for Top Partition
+ 39. Elapsed Time Per Partition
+ 40. Analysis & Synthesis Messages
 
 
 
@@ -65,17 +72,17 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Tue Mar  5 23:59:06 2024          ;
+; Analysis & Synthesis Status     ; Successful - Tue Mar 19 17:42:07 2024          ;
 ; Quartus Prime Version           ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                   ; Lab4                                           ;
 ; Top-level Entity Name           ; Lab4                                           ;
 ; Family                          ; Cyclone V                                      ;
 ; Logic utilization (in ALMs)     ; N/A                                            ;
-; Total registers                 ; 0                                              ;
+; Total registers                 ; 38                                             ;
 ; Total pins                      ; 46                                             ;
 ; Total virtual pins              ; 0                                              ;
 ; Total block memory bits         ; 0                                              ;
-; Total DSP Blocks                ; 0                                              ;
+; Total DSP Blocks                ; 1                                              ;
 ; Total HSSI RX PCSs              ; 0                                              ;
 ; Total HSSI PMA RX Deserializers ; 0                                              ;
 ; Total HSSI TX PCSs              ; 0                                              ;
@@ -181,10 +188,11 @@ https://fpgasoftware.intel.com/eula.
 ; Maximum allowed            ; 16          ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 16          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processors 2-16        ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -193,6 +201,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                     ; Library ;
 +----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------------+---------+
+; IR.sv                            ; yes             ; User SystemVerilog HDL File  ; /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/IR.sv              ;         ;
 ; counter.sv                       ; yes             ; User SystemVerilog HDL File  ; /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/counter.sv         ;         ;
 ; program_counter.sv               ; yes             ; User SystemVerilog HDL File  ; /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/program_counter.sv ;         ;
 ; ALU.sv                           ; yes             ; User SystemVerilog HDL File  ; /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/ALU.sv             ;         ;
@@ -203,41 +212,64 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------------+---------+
 
 
-+-----------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary         ;
-+---------------------------------------------+-------+
-; Resource                                    ; Usage ;
-+---------------------------------------------+-------+
-; Estimate of Logic utilization (ALMs needed) ; 0     ;
-;                                             ;       ;
-; Combinational ALUT usage for logic          ; 0     ;
-;     -- 7 input functions                    ; 0     ;
-;     -- 6 input functions                    ; 0     ;
-;     -- 5 input functions                    ; 0     ;
-;     -- 4 input functions                    ; 0     ;
-;     -- <=3 input functions                  ; 0     ;
-;                                             ;       ;
-; Dedicated logic registers                   ; 0     ;
-;                                             ;       ;
-; I/O pins                                    ; 46    ;
-;                                             ;       ;
-; Total DSP Blocks                            ; 0     ;
-;                                             ;       ;
-; Maximum fan-out node                        ; SW1   ;
-; Maximum fan-out                             ; 1     ;
-; Total fan-out                               ; 46    ;
-; Average fan-out                             ; 0.50  ;
-+---------------------------------------------+-------+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimate of Logic utilization (ALMs needed) ; 137       ;
+;                                             ;           ;
+; Combinational ALUT usage for logic          ; 207       ;
+;     -- 7 input functions                    ; 4         ;
+;     -- 6 input functions                    ; 63        ;
+;     -- 5 input functions                    ; 37        ;
+;     -- 4 input functions                    ; 35        ;
+;     -- <=3 input functions                  ; 68        ;
+;                                             ;           ;
+; Dedicated logic registers                   ; 38        ;
+;                                             ;           ;
+; I/O pins                                    ; 46        ;
+;                                             ;           ;
+; Total DSP Blocks                            ; 1         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; SW0~input ;
+; Maximum fan-out                             ; 40        ;
+; Total fan-out                               ; 1071      ;
+; Average fan-out                             ; 3.17      ;
++---------------------------------------------+-----------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                    ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
-; |Lab4                      ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 46   ; 0            ; |Lab4               ; Lab4        ; work         ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                        ;
++------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------+-----------------+--------------+
+; Compilation Hierarchy Node   ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                               ; Entity Name     ; Library Name ;
++------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------+-----------------+--------------+
+; |Lab4                        ; 207 (48)            ; 38 (0)                    ; 0                 ; 1          ; 46   ; 0            ; |Lab4                                             ; Lab4            ; work         ;
+;    |ALU:ALU_unit|            ; 45 (45)             ; 0 (0)                     ; 0                 ; 1          ; 0    ; 0            ; |Lab4|ALU:ALU_unit                                ; ALU             ; work         ;
+;    |counter:single_clock|    ; 58 (32)             ; 26 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |Lab4|counter:single_clock                        ; counter         ; work         ;
+;       |d_flipflop:dff|       ; 26 (26)             ; 26 (26)                   ; 0                 ; 0          ; 0    ; 0            ; |Lab4|counter:single_clock|d_flipflop:dff         ; d_flipflop      ; work         ;
+;    |hexDisp:hex_display0|    ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Lab4|hexDisp:hex_display0                        ; hexDisp         ; work         ;
+;    |hexDisp:hex_display1|    ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Lab4|hexDisp:hex_display1                        ; hexDisp         ; work         ;
+;    |hexDisp:hex_display2|    ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Lab4|hexDisp:hex_display2                        ; hexDisp         ; work         ;
+;    |hexDisp:hex_display3|    ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Lab4|hexDisp:hex_display3                        ; hexDisp         ; work         ;
+;    |program_counter:PC|      ; 10 (2)              ; 6 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Lab4|program_counter:PC                          ; program_counter ; work         ;
+;       |d_flipflop:myDff|     ; 8 (8)               ; 6 (6)                     ; 0                 ; 0          ; 0    ; 0            ; |Lab4|program_counter:PC|d_flipflop:myDff         ; d_flipflop      ; work         ;
+;    |register_file:reg_file|  ; 22 (14)             ; 6 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Lab4|register_file:reg_file                      ; register_file   ; work         ;
+;       |d_flipflop:register0| ; 8 (8)               ; 6 (6)                     ; 0                 ; 0          ; 0    ; 0            ; |Lab4|register_file:reg_file|d_flipflop:register0 ; d_flipflop      ; work         ;
++------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------+-----------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary  ;
++---------------------------------+-------------+
+; Statistic                       ; Number Used ;
++---------------------------------+-------------+
+; Independent 9x9                 ; 1           ;
+; Total number of DSP blocks      ; 1           ;
+;                                 ;             ;
+; Fixed Point Unsigned Multiplier ; 1           ;
++---------------------------------+-------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------+
@@ -245,53 +277,16 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------------------------------------+--------------------------------------------------------------+
 ; Register name                                       ; Reason for Removal                                           ;
 +-----------------------------------------------------+--------------------------------------------------------------+
-; register_file:reg_file|d_flipflop:register7|q[1..5] ; Merged with register_file:reg_file|d_flipflop:register7|q[0] ;
-; register_file:reg_file|d_flipflop:register6|q[1..5] ; Merged with register_file:reg_file|d_flipflop:register6|q[0] ;
-; register_file:reg_file|d_flipflop:register5|q[1..5] ; Merged with register_file:reg_file|d_flipflop:register5|q[0] ;
-; register_file:reg_file|d_flipflop:register4|q[1..5] ; Merged with register_file:reg_file|d_flipflop:register4|q[0] ;
-; register_file:reg_file|d_flipflop:register3|q[1..5] ; Merged with register_file:reg_file|d_flipflop:register3|q[0] ;
-; register_file:reg_file|d_flipflop:register2|q[1..5] ; Merged with register_file:reg_file|d_flipflop:register2|q[0] ;
 ; register_file:reg_file|d_flipflop:register1|q[1..5] ; Merged with register_file:reg_file|d_flipflop:register1|q[0] ;
-; register_file:reg_file|d_flipflop:register0|q[1..5] ; Merged with register_file:reg_file|d_flipflop:register0|q[0] ;
-; register_file:reg_file|d_flipflop:register7|q[0]    ; Stuck at GND due to stuck port data_in                       ;
-; register_file:reg_file|d_flipflop:register6|q[0]    ; Stuck at GND due to stuck port data_in                       ;
-; register_file:reg_file|d_flipflop:register5|q[0]    ; Stuck at GND due to stuck port data_in                       ;
-; register_file:reg_file|d_flipflop:register4|q[0]    ; Stuck at GND due to stuck port data_in                       ;
-; register_file:reg_file|d_flipflop:register3|q[0]    ; Stuck at GND due to stuck port data_in                       ;
-; register_file:reg_file|d_flipflop:register2|q[0]    ; Stuck at GND due to stuck port data_in                       ;
+; register_file:reg_file|d_flipflop:register2|q[0..5] ; Merged with register_file:reg_file|d_flipflop:register1|q[0] ;
+; register_file:reg_file|d_flipflop:register3|q[0..5] ; Merged with register_file:reg_file|d_flipflop:register1|q[0] ;
+; register_file:reg_file|d_flipflop:register4|q[0..5] ; Merged with register_file:reg_file|d_flipflop:register1|q[0] ;
+; register_file:reg_file|d_flipflop:register5|q[0..5] ; Merged with register_file:reg_file|d_flipflop:register1|q[0] ;
+; register_file:reg_file|d_flipflop:register6|q[0..5] ; Merged with register_file:reg_file|d_flipflop:register1|q[0] ;
+; register_file:reg_file|d_flipflop:register7|q[0..5] ; Merged with register_file:reg_file|d_flipflop:register1|q[0] ;
 ; register_file:reg_file|d_flipflop:register1|q[0]    ; Stuck at GND due to stuck port data_in                       ;
-; register_file:reg_file|d_flipflop:register0|q[0]    ; Stuck at GND due to stuck port data_in                       ;
-; counter:single_clock|d_flipflop:dff|q[0..22]        ; Lost fanout                                                  ;
-; program_counter:PC|d_flipflop:myDff|q[0..5]         ; Stuck at GND due to stuck port data_in                       ;
-; Total Number of Removed Registers = 77              ;                                                              ;
+; Total Number of Removed Registers = 42              ;                                                              ;
 +-----------------------------------------------------+--------------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                                        ;
-+--------------------------------------------------+---------------------------+-------------------------------------------------------------------------------------+
-; Register name                                    ; Reason for Removal        ; Registers Removed due to This Register                                              ;
-+--------------------------------------------------+---------------------------+-------------------------------------------------------------------------------------+
-; counter:single_clock|d_flipflop:dff|q[22]        ; Lost Fanouts              ; counter:single_clock|d_flipflop:dff|q[21],                                          ;
-;                                                  ;                           ; counter:single_clock|d_flipflop:dff|q[20],                                          ;
-;                                                  ;                           ; counter:single_clock|d_flipflop:dff|q[19],                                          ;
-;                                                  ;                           ; counter:single_clock|d_flipflop:dff|q[18],                                          ;
-;                                                  ;                           ; counter:single_clock|d_flipflop:dff|q[17],                                          ;
-;                                                  ;                           ; counter:single_clock|d_flipflop:dff|q[16],                                          ;
-;                                                  ;                           ; counter:single_clock|d_flipflop:dff|q[15],                                          ;
-;                                                  ;                           ; counter:single_clock|d_flipflop:dff|q[14],                                          ;
-;                                                  ;                           ; counter:single_clock|d_flipflop:dff|q[13],                                          ;
-;                                                  ;                           ; counter:single_clock|d_flipflop:dff|q[12],                                          ;
-;                                                  ;                           ; counter:single_clock|d_flipflop:dff|q[11],                                          ;
-;                                                  ;                           ; counter:single_clock|d_flipflop:dff|q[10],                                          ;
-;                                                  ;                           ; counter:single_clock|d_flipflop:dff|q[9], counter:single_clock|d_flipflop:dff|q[8], ;
-;                                                  ;                           ; counter:single_clock|d_flipflop:dff|q[7], counter:single_clock|d_flipflop:dff|q[6], ;
-;                                                  ;                           ; counter:single_clock|d_flipflop:dff|q[5], counter:single_clock|d_flipflop:dff|q[4], ;
-;                                                  ;                           ; counter:single_clock|d_flipflop:dff|q[3], counter:single_clock|d_flipflop:dff|q[2], ;
-;                                                  ;                           ; counter:single_clock|d_flipflop:dff|q[1], counter:single_clock|d_flipflop:dff|q[0]  ;
-; register_file:reg_file|d_flipflop:register7|q[0] ; Stuck at GND              ; program_counter:PC|d_flipflop:myDff|q[3], program_counter:PC|d_flipflop:myDff|q[4], ;
-;                                                  ; due to stuck port data_in ; program_counter:PC|d_flipflop:myDff|q[5]                                            ;
-+--------------------------------------------------+---------------------------+-------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -299,33 +294,36 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
-; Number of registers using Synchronous Clear  ; 0     ;
+; Total registers                              ; 38    ;
+; Number of registers using Synchronous Clear  ; 6     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 11    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; 8:1                ; 6 bits    ; 30 LEs        ; 12 LEs               ; 18 LEs                 ; No         ; |Lab4|Mux6                 ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------+
+; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |Lab4|program_counter:PC|comb ;
+; 9:1                ; 3 bits    ; 18 LEs        ; 15 LEs               ; 3 LEs                  ; No         ; |Lab4|Mux14                   ;
+; 9:1                ; 6 bits    ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; No         ; |Lab4|ALU:ALU_unit|Mux0       ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |Lab4|Mux15                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------+
 
 
 +-------------------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: counter:single_clock ;
-+----------------+---------+----------------------------------------+
-; Parameter Name ; Value   ; Type                                   ;
-+----------------+---------+----------------------------------------+
-; m              ; 5000000 ; Signed Integer                         ;
-; b              ; 23      ; Signed Integer                         ;
-+----------------+---------+----------------------------------------+
++----------------+----------+---------------------------------------+
+; Parameter Name ; Value    ; Type                                  ;
++----------------+----------+---------------------------------------+
+; m              ; 50000000 ; Signed Integer                        ;
+; b              ; 26       ; Signed Integer                        ;
++----------------+----------+---------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -334,7 +332,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+-------+---------------------------------------------------------+
 ; Parameter Name ; Value ; Type                                                    ;
 +----------------+-------+---------------------------------------------------------+
-; size           ; 23    ; Signed Integer                                          ;
+; size           ; 26    ; Signed Integer                                          ;
 +----------------+-------+---------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -429,44 +427,40 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "hexDisp:hex_display3"                                                                                                                      ;
-+------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
-; Port ; Type   ; Severity ; Details                                                                                                                                    ;
-+------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
-; sw   ; Input  ; Warning  ; Input port expression (3 bits) is smaller than the input port (4 bits) it drives.  Extra input bit(s) "sw[3..3]" will be connected to GND. ;
-; hex  ; Output ; Warning  ; Output or bidir port (7 bits) is wider than the port expression (4 bits) it drives; bit(s) "hex[6..4]" have no fanouts                     ;
-+------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "hexDisp:hex_display3"                                                                                                                     ;
++------+-------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                    ;
++------+-------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
+; sw   ; Input ; Warning  ; Input port expression (3 bits) is smaller than the input port (4 bits) it drives.  Extra input bit(s) "sw[3..3]" will be connected to GND. ;
++------+-------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "hexDisp:hex_display2"                                                                                                                      ;
-+------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
-; Port ; Type   ; Severity ; Details                                                                                                                                    ;
-+------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
-; sw   ; Input  ; Warning  ; Input port expression (3 bits) is smaller than the input port (4 bits) it drives.  Extra input bit(s) "sw[3..3]" will be connected to GND. ;
-; hex  ; Output ; Warning  ; Output or bidir port (7 bits) is wider than the port expression (4 bits) it drives; bit(s) "hex[6..4]" have no fanouts                     ;
-+------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "hexDisp:hex_display2"                                                                                                                     ;
++------+-------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                    ;
++------+-------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
+; sw   ; Input ; Warning  ; Input port expression (3 bits) is smaller than the input port (4 bits) it drives.  Extra input bit(s) "sw[3..3]" will be connected to GND. ;
++------+-------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "hexDisp:hex_display1"                                                                                                                      ;
-+------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
-; Port ; Type   ; Severity ; Details                                                                                                                                    ;
-+------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
-; sw   ; Input  ; Warning  ; Input port expression (3 bits) is smaller than the input port (4 bits) it drives.  Extra input bit(s) "sw[3..3]" will be connected to GND. ;
-; hex  ; Output ; Warning  ; Output or bidir port (7 bits) is wider than the port expression (4 bits) it drives; bit(s) "hex[6..4]" have no fanouts                     ;
-+------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "hexDisp:hex_display1"                                                                                                                     ;
++------+-------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                    ;
++------+-------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
+; sw   ; Input ; Warning  ; Input port expression (3 bits) is smaller than the input port (4 bits) it drives.  Extra input bit(s) "sw[3..3]" will be connected to GND. ;
++------+-------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "hexDisp:hex_display0"                                                                                                                      ;
-+------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
-; Port ; Type   ; Severity ; Details                                                                                                                                    ;
-+------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
-; sw   ; Input  ; Warning  ; Input port expression (3 bits) is smaller than the input port (4 bits) it drives.  Extra input bit(s) "sw[3..3]" will be connected to GND. ;
-; hex  ; Output ; Warning  ; Output or bidir port (7 bits) is wider than the port expression (4 bits) it drives; bit(s) "hex[6..4]" have no fanouts                     ;
-+------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "hexDisp:hex_display0"                                                                                                                     ;
++------+-------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                    ;
++------+-------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
+; sw   ; Input ; Warning  ; Input port expression (3 bits) is smaller than the input port (4 bits) it drives.  Extra input bit(s) "sw[3..3]" will be connected to GND. ;
++------+-------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -488,6 +482,69 @@ Note: In order to hide this table in the UI and the text report file, please set
 +---------+--------+----------+------------------------------------------------------------------------------------------------------------------------------+
 
 
++-------------------------------------------------------------------------+
+; Port Connectivity Checks: "register_file:reg_file|d_flipflop:register7" ;
++------+-------+----------+-----------------------------------------------+
+; Port ; Type  ; Severity ; Details                                       ;
++------+-------+----------+-----------------------------------------------+
+; en   ; Input ; Info     ; Stuck at GND                                  ;
++------+-------+----------+-----------------------------------------------+
+
+
++-------------------------------------------------------------------------+
+; Port Connectivity Checks: "register_file:reg_file|d_flipflop:register6" ;
++------+-------+----------+-----------------------------------------------+
+; Port ; Type  ; Severity ; Details                                       ;
++------+-------+----------+-----------------------------------------------+
+; en   ; Input ; Info     ; Stuck at GND                                  ;
++------+-------+----------+-----------------------------------------------+
+
+
++-------------------------------------------------------------------------+
+; Port Connectivity Checks: "register_file:reg_file|d_flipflop:register5" ;
++------+-------+----------+-----------------------------------------------+
+; Port ; Type  ; Severity ; Details                                       ;
++------+-------+----------+-----------------------------------------------+
+; en   ; Input ; Info     ; Stuck at GND                                  ;
++------+-------+----------+-----------------------------------------------+
+
+
++-------------------------------------------------------------------------+
+; Port Connectivity Checks: "register_file:reg_file|d_flipflop:register4" ;
++------+-------+----------+-----------------------------------------------+
+; Port ; Type  ; Severity ; Details                                       ;
++------+-------+----------+-----------------------------------------------+
+; en   ; Input ; Info     ; Stuck at GND                                  ;
++------+-------+----------+-----------------------------------------------+
+
+
++-------------------------------------------------------------------------+
+; Port Connectivity Checks: "register_file:reg_file|d_flipflop:register3" ;
++------+-------+----------+-----------------------------------------------+
+; Port ; Type  ; Severity ; Details                                       ;
++------+-------+----------+-----------------------------------------------+
+; en   ; Input ; Info     ; Stuck at GND                                  ;
++------+-------+----------+-----------------------------------------------+
+
+
++-------------------------------------------------------------------------+
+; Port Connectivity Checks: "register_file:reg_file|d_flipflop:register2" ;
++------+-------+----------+-----------------------------------------------+
+; Port ; Type  ; Severity ; Details                                       ;
++------+-------+----------+-----------------------------------------------+
+; en   ; Input ; Info     ; Stuck at GND                                  ;
++------+-------+----------+-----------------------------------------------+
+
+
++-------------------------------------------------------------------------+
+; Port Connectivity Checks: "register_file:reg_file|d_flipflop:register1" ;
++------+-------+----------+-----------------------------------------------+
+; Port ; Type  ; Severity ; Details                                       ;
++------+-------+----------+-----------------------------------------------+
+; en   ; Input ; Info     ; Stuck at GND                                  ;
++------+-------+----------+-----------------------------------------------+
+
+
 +-----------------------------------------------------------------+
 ; Port Connectivity Checks: "counter:single_clock|d_flipflop:dff" ;
 +------+-------+----------+---------------------------------------+
@@ -497,15 +554,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------+-------+----------+---------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "counter:single_clock"                                                                                                                                                   ;
-+------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port ; Type   ; Severity ; Details                                                                                                                                                                 ;
-+------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; inc  ; Input  ; Info     ; Stuck at VCC                                                                                                                                                            ;
-; dec  ; Input  ; Info     ; Stuck at GND                                                                                                                                                            ;
-; cnt  ; Output ; Warning  ; Output or bidir port (23 bits) is smaller than the port expression (26 bits) it drives.  The 3 most-significant bit(s) in the port expression will be connected to GND. ;
-+------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++--------------------------------------------------+
+; Port Connectivity Checks: "counter:single_clock" ;
++------+-------+----------+------------------------+
+; Port ; Type  ; Severity ; Details                ;
++------+-------+----------+------------------------+
+; inc  ; Input ; Info     ; Stuck at VCC           ;
+; dec  ; Input ; Info     ; Stuck at GND           ;
++------+-------+----------+------------------------+
 
 
 +-----------------------------------------------------+
@@ -513,13 +569,31 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_lcell_comb     ; 1                           ;
-;     normal            ; 1                           ;
+; arriav_ff             ; 38                          ;
+;     ENA               ; 6                           ;
+;     ENA SCLR          ; 5                           ;
+;     SCLR              ; 1                           ;
+;     plain             ; 26                          ;
+; arriav_lcell_comb     ; 211                         ;
+;     arith             ; 38                          ;
+;         1 data inputs ; 29                          ;
+;         4 data inputs ; 3                           ;
+;         5 data inputs ; 6                           ;
+;     extend            ; 4                           ;
+;         7 data inputs ; 4                           ;
+;     normal            ; 169                         ;
 ;         0 data inputs ; 1                           ;
+;         1 data inputs ; 3                           ;
+;         2 data inputs ; 25                          ;
+;         3 data inputs ; 14                          ;
+;         4 data inputs ; 32                          ;
+;         5 data inputs ; 31                          ;
+;         6 data inputs ; 63                          ;
+; arriav_mac            ; 1                           ;
 ; boundary_port         ; 46                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 0.00                        ;
-; Average LUT depth     ; 0.00                        ;
+; Max LUT depth         ; 9.50                        ;
+; Average LUT depth     ; 5.26                        ;
 +-----------------------+-----------------------------+
 
 
@@ -538,107 +612,59 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
-    Info: Processing started: Tue Mar  5 23:58:59 2024
+    Info: Processing started: Tue Mar 19 17:42:00 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Lab4 -c Lab4
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file IR.sv
+    Info (12023): Found entity 1: IR File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/IR.sv Line: 2
 Info (12021): Found 1 design units, including 1 entities, in source file counter.sv
-    Info (12023): Found entity 1: counter File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/counter.sv Line: 3
+    Info (12023): Found entity 1: counter File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/counter.sv Line: 2
 Info (12021): Found 1 design units, including 1 entities, in source file program_counter.sv
     Info (12023): Found entity 1: program_counter File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/program_counter.sv Line: 2
 Info (12021): Found 1 design units, including 1 entities, in source file ALU.sv
     Info (12023): Found entity 1: ALU File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/ALU.sv Line: 11
 Info (12021): Found 1 design units, including 1 entities, in source file d_flipflop.sv
-    Info (12023): Found entity 1: d_flipflop File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/d_flipflop.sv Line: 1
+    Info (12023): Found entity 1: d_flipflop File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/d_flipflop.sv Line: 2
 Info (12021): Found 1 design units, including 1 entities, in source file hexDisp.sv
-    Info (12023): Found entity 1: hexDisp File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/hexDisp.sv Line: 1
+    Info (12023): Found entity 1: hexDisp File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/hexDisp.sv Line: 2
 Info (12021): Found 1 design units, including 1 entities, in source file Lab4.sv
-    Info (12023): Found entity 1: Lab4 File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 13
+    Info (12023): Found entity 1: Lab4 File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 12
 Info (12021): Found 1 design units, including 1 entities, in source file register_file.sv
     Info (12023): Found entity 1: register_file File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/register_file.sv Line: 17
 Info (12127): Elaborating entity "Lab4" for the top level hierarchy
-Warning (10858): Verilog HDL warning at Lab4.sv(45): object mem used but never assigned File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 45
-Warning (10034): Output port "HEX[6..4]" at Lab4.sv(26) has no driver File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 26
-Info (12128): Elaborating entity "counter" for hierarchy "counter:single_clock" File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 100
-Warning (10230): Verilog HDL assignment warning at counter.sv(30): truncated value with size 32 to match size of target (23) File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/counter.sv Line: 30
-Warning (10230): Verilog HDL assignment warning at counter.sv(31): truncated value with size 32 to match size of target (23) File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/counter.sv Line: 31
-Info (10264): Verilog HDL Case Statement information at counter.sv(29): all case item expressions in this case statement are onehot File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/counter.sv Line: 29
-Info (12128): Elaborating entity "d_flipflop" for hierarchy "counter:single_clock|d_flipflop:dff" File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/counter.sv Line: 26
-Info (12128): Elaborating entity "register_file" for hierarchy "register_file:reg_file" File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 114
-Warning (10036): Verilog HDL or VHDL warning at register_file.sv(31): object "enable" assigned a value but never read File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/register_file.sv Line: 31
+Warning (10858): Verilog HDL warning at Lab4.sv(48): object mem used but never assigned File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 48
+Info (12128): Elaborating entity "IR" for hierarchy "IR:instruction_register" File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 99
+Info (12128): Elaborating entity "counter" for hierarchy "counter:single_clock" File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 107
+Warning (10230): Verilog HDL assignment warning at counter.sv(29): truncated value with size 32 to match size of target (26) File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/counter.sv Line: 29
+Warning (10230): Verilog HDL assignment warning at counter.sv(30): truncated value with size 32 to match size of target (26) File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/counter.sv Line: 30
+Info (10264): Verilog HDL Case Statement information at counter.sv(28): all case item expressions in this case statement are onehot File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/counter.sv Line: 28
+Info (12128): Elaborating entity "d_flipflop" for hierarchy "counter:single_clock|d_flipflop:dff" File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/counter.sv Line: 25
+Info (12128): Elaborating entity "register_file" for hierarchy "register_file:reg_file" File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 121
 Info (12128): Elaborating entity "d_flipflop" for hierarchy "register_file:reg_file|d_flipflop:register0" File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/register_file.sv Line: 87
-Info (12128): Elaborating entity "ALU" for hierarchy "ALU:ALU_unit" File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 126
-Info (12128): Elaborating entity "program_counter" for hierarchy "program_counter:PC" File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 136
+Info (12128): Elaborating entity "ALU" for hierarchy "ALU:ALU_unit" File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 133
+Info (12128): Elaborating entity "program_counter" for hierarchy "program_counter:PC" File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 143
 Warning (10230): Verilog HDL assignment warning at program_counter.sv(17): truncated value with size 64 to match size of target (7) File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/program_counter.sv Line: 17
-Info (12128): Elaborating entity "hexDisp" for hierarchy "hexDisp:hex_display0" File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 142
-Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "register_file:reg_file|d[5]" is missing source, defaulting to GND File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/register_file.sv Line: 32
-    Warning (12110): Net "register_file:reg_file|d[4]" is missing source, defaulting to GND File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/register_file.sv Line: 32
-    Warning (12110): Net "register_file:reg_file|d[3]" is missing source, defaulting to GND File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/register_file.sv Line: 32
-    Warning (12110): Net "register_file:reg_file|d[2]" is missing source, defaulting to GND File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/register_file.sv Line: 32
-    Warning (12110): Net "register_file:reg_file|d[1]" is missing source, defaulting to GND File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/register_file.sv Line: 32
-    Warning (12110): Net "register_file:reg_file|d[0]" is missing source, defaulting to GND File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/register_file.sv Line: 32
+Info (12128): Elaborating entity "hexDisp" for hierarchy "hexDisp:hex_display0" File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 149
 Info (276014): Found 1 instances of uninferred RAM logic
-    Info (276004): RAM logic "mem" is uninferred due to inappropriate RAM size File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 45
-Warning (12241): 7 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+    Info (276004): RAM logic "mem" is uninferred due to inappropriate RAM size File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 48
+Warning (12241): 6 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "LED[0]" is stuck at GND File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 24
-    Warning (13410): Pin "LED[1]" is stuck at GND File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 24
-    Warning (13410): Pin "LED[2]" is stuck at GND File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 24
-    Warning (13410): Pin "LED[3]" is stuck at GND File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 24
-    Warning (13410): Pin "LED[4]" is stuck at GND File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 24
-    Warning (13410): Pin "LED[5]" is stuck at GND File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 24
     Warning (13410): Pin "LED[6]" is stuck at GND File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 24
     Warning (13410): Pin "LED[7]" is stuck at GND File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 24
-    Warning (13410): Pin "HEX[0][0]" is stuck at GND File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 26
-    Warning (13410): Pin "HEX[0][1]" is stuck at GND File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 26
-    Warning (13410): Pin "HEX[0][2]" is stuck at GND File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 26
-    Warning (13410): Pin "HEX[0][3]" is stuck at GND File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 26
-    Warning (13410): Pin "HEX[1][0]" is stuck at GND File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 26
-    Warning (13410): Pin "HEX[1][1]" is stuck at GND File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 26
-    Warning (13410): Pin "HEX[1][2]" is stuck at GND File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 26
-    Warning (13410): Pin "HEX[1][3]" is stuck at GND File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 26
-    Warning (13410): Pin "HEX[2][0]" is stuck at GND File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 26
-    Warning (13410): Pin "HEX[2][1]" is stuck at GND File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 26
-    Warning (13410): Pin "HEX[2][2]" is stuck at GND File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 26
-    Warning (13410): Pin "HEX[2][3]" is stuck at GND File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 26
-    Warning (13410): Pin "HEX[3][0]" is stuck at GND File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 26
-    Warning (13410): Pin "HEX[3][1]" is stuck at GND File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 26
-    Warning (13410): Pin "HEX[3][2]" is stuck at GND File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 26
-    Warning (13410): Pin "HEX[3][3]" is stuck at GND File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 26
-    Warning (13410): Pin "HEX[4][0]" is stuck at GND File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 26
-    Warning (13410): Pin "HEX[4][1]" is stuck at GND File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 26
-    Warning (13410): Pin "HEX[4][2]" is stuck at GND File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 26
-    Warning (13410): Pin "HEX[4][3]" is stuck at GND File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 26
-    Warning (13410): Pin "HEX[5][0]" is stuck at GND File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 26
-    Warning (13410): Pin "HEX[5][1]" is stuck at GND File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 26
-    Warning (13410): Pin "HEX[5][2]" is stuck at GND File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 26
-    Warning (13410): Pin "HEX[5][3]" is stuck at GND File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 26
-    Warning (13410): Pin "HEX[6][0]" is stuck at GND File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 26
-    Warning (13410): Pin "HEX[6][1]" is stuck at GND File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 26
-    Warning (13410): Pin "HEX[6][2]" is stuck at GND File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 26
-    Warning (13410): Pin "HEX[6][3]" is stuck at GND File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 26
-Info (17049): 23 registers lost all their fanouts during netlist optimizations.
+    Warning (13410): Pin "HEX02[2]" is stuck at GND File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 27
+Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 10 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "SW1" File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 16
-    Warning (15610): No output dependent on input pin "SW5" File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 20
-    Warning (15610): No output dependent on input pin "SW6" File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 21
-    Warning (15610): No output dependent on input pin "SW7" File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 22
-    Warning (15610): No output dependent on input pin "KEY0" File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 23
-    Warning (15610): No output dependent on input pin "SW3" File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 18
-    Warning (15610): No output dependent on input pin "SW4" File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 19
-    Warning (15610): No output dependent on input pin "SW2" File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 17
-    Warning (15610): No output dependent on input pin "SW0" File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 15
-    Warning (15610): No output dependent on input pin "clk" File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 14
-Info (21057): Implemented 46 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 254 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 10 input pins
     Info (21059): Implemented 36 output pins
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 63 warnings
-    Info: Peak virtual memory: 413 megabytes
-    Info: Processing ended: Tue Mar  5 23:59:06 2024
+    Info (21061): Implemented 207 logic cells
+    Info (21062): Implemented 1 DSP elements
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 10 warnings
+    Info: Peak virtual memory: 532 megabytes
+    Info: Processing ended: Tue Mar 19 17:42:07 2024
     Info: Elapsed time: 00:00:07
-    Info: Total CPU time (on all processors): 00:00:22
+    Info: Total CPU time (on all processors): 00:00:20
 
 

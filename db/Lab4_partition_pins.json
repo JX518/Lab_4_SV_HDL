@@ -2,7 +2,180 @@
 	"partitions" : [
 		{
 			"name" : "Top",
-			"pins" : []
+			"pins" : [
+				{
+					"name" : "LED[0]",
+					"strict" : false
+				},
+				{
+					"name" : "LED[1]",
+					"strict" : false
+				},
+				{
+					"name" : "LED[2]",
+					"strict" : false
+				},
+				{
+					"name" : "LED[3]",
+					"strict" : false
+				},
+				{
+					"name" : "LED[4]",
+					"strict" : false
+				},
+				{
+					"name" : "LED[5]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX00[0]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX00[1]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX00[2]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX00[3]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX00[4]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX00[5]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX00[6]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX01[0]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX01[1]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX01[2]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX01[3]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX01[4]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX01[5]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX01[6]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX02[0]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX02[1]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX02[3]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX02[4]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX02[5]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX02[6]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX03[0]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX03[1]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX03[2]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX03[3]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX03[4]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX03[5]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX03[6]",
+					"strict" : false
+				},
+				{
+					"name" : "SW3",
+					"strict" : false
+				},
+				{
+					"name" : "SW2",
+					"strict" : false
+				},
+				{
+					"name" : "SW4",
+					"strict" : false
+				},
+				{
+					"name" : "SW5",
+					"strict" : false
+				},
+				{
+					"name" : "SW6",
+					"strict" : false
+				},
+				{
+					"name" : "SW7",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "SW1",
+					"strict" : false
+				},
+				{
+					"name" : "KEY0",
+					"strict" : false
+				},
+				{
+					"name" : "SW0",
+					"strict" : false
+				}
+			]
 		}
 	]
 }
