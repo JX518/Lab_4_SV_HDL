@@ -1,4 +1,3 @@
-//THIS WORKS
 module d_flipflop
   #(parameter int size = 1) // Our first module parameter! Now everything is squishy
    (

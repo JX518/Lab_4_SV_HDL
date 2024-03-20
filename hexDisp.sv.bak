@@ -1,4 +1,3 @@
-//THIS WORKS
 module hexDisp(
 	input logic [3:0] sw, 
 	output logic [6:0] hex);	

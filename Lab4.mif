@@ -19,8 +19,17 @@ WIDTH=12;
 DEPTH=64;
 
 ADDRESS_RADIX=UNS;
-DATA_RADIX=UNS;
+DATA_RADIX=OCT;
 
 CONTENT BEGIN
-	[0..63]  :   0;
+	0   :   1120;
+	1   :   3057;
+	2   :   2707;
+	3   :   4072;
+	4   :   6060;
+	5   :   0000;
+	6   :   5722;
+	7   :   6020;
+	8   :   0000;
+	[9..63]  :   0;
 END;

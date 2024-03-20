@@ -1,5 +1,4 @@
-
-
+//THIS WORKS
 module counter
   #(
     parameter int m=52,  // Maximum

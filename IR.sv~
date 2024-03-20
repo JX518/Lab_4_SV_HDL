@@ -1,0 +1,11 @@
+module IR(
+	logic [11:0] instruction,
+	logic [2:0] opcode,	  
+	logic [2:0] RA,
+	logic [2:0] RB,
+	logic [2:0] RD	  
+);
+	assign opcode = instruction[11:9];
+	assign RA = instruction[8:6];
+	assign RB = instruction[5:3];
+	assign RD = instruction[2:0];

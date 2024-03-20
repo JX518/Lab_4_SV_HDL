@@ -9,7 +9,8 @@
  * 	LED[7:0] 	Default, indicates address of instruction
  */
 
-module Lab4(
+module Lab4
+(
 	 input logic clk,
 	 input logic SW0, 
 	 input logic SW1, 
@@ -47,11 +48,24 @@ module Lab4(
 	(* ram_init_file = "Lab4.mif" *) logic [11:0] mem[63:0];
 
 	assign instruction = mem[address];
- 	assign enable_clock = SW0 ? 
-		(SW1 & KEY0 & (single_clock_counter == '0)) : ~SW1;
+ 	assign enable_clock = SW1 ? 
+		(~KEY0 & (single_clock_counter == '0)) : 1'b1;
 
 	assign LED = address;
-		 
+	
+	always_comb begin 
+		unique case ({SW7,SW6,SW5})
+			3'd0: display_register = registers[0];
+			3'd1: display_register = registers[1];
+			3'd2: display_register = registers[2];
+			3'd3: display_register = registers[3];
+			3'd4: display_register = registers[4];
+			3'd5: display_register = registers[5];
+			3'd6: display_register = registers[6];
+			3'd7: display_register = registers[7];
+		endcase 
+	end	
+	  
 	/* Handles debugging switches
 	 * 0	Register #{SW7,SW6,SW5}
 	 * 1	Instruction Register
@@ -75,42 +89,29 @@ module Lab4(
 		endcase 
 	end
 	
-	always_comb begin 
-		unique case ({SW7,SW6,SW5})
-			3'd0: display_register = registers[0];
-			3'd1: display_register = registers[1];
-			3'd2: display_register = registers[2];
-			3'd3: display_register = registers[3];
-			3'd4: display_register = registers[4];
-			3'd5: display_register = registers[5];
-			3'd6: display_register = registers[6];
-			3'd7: display_register = registers[7];
-		endcase 
-	end	
-	  
 	IR instruction_register(
    	//this counter is for when in single clock mode the fastest it will clock is once per second
-		.instruction(instruction)
-		.opcode(op_code)
-		.RA(RA)
-		.RB(RB)
+		.instruction(instruction),
+		.opcode(op_code),
+		.RA(RA),
+		.RB(RB),
 		.RD(RD)
 	);	
 
-	counter #(5_000_000) single_clock(
+	counter #(50_000_000) single_clock(
 		.inc(1'b1),
 		.dec(1'b0),
 		.clk(clk),
 		.rst(~SW0),
 		.cnt(single_clock_counter) 
-	    );
-	
+	 );
    
 	register_file reg_file(
 		.op(op_code),
 		.RA(RA),
 		.RB(RB),
 		.RD(RD),
+		.d(ALU_out),
 		.rst(~SW0),
 		.clk(clk),
 		.debug_en(enable_clock),
