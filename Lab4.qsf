@@ -105,6 +105,8 @@ set_location_assignment PIN_V16 -to HEX03[3]
 set_location_assignment PIN_U17 -to HEX03[4]
 set_location_assignment PIN_V18 -to HEX03[5]
 set_location_assignment PIN_V19 -to HEX03[6]
+set_global_assignment -name EDA_NETLIST_WRITER_OUTPUT_DIR simulation/questa -section_id eda_simulation
+set_global_assignment -name MIF_FILE ../../../Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/microprocessor.mif
 set_global_assignment -name SYSTEMVERILOG_FILE IR.sv
 set_global_assignment -name SYSTEMVERILOG_FILE counter.sv
 set_global_assignment -name SYSTEMVERILOG_FILE program_counter.sv

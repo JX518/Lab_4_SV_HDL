@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Lab4
-Tue Mar 19 17:42:07 2024
+Thu Mar 21 14:36:08 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -14,38 +14,30 @@ Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis DSP Block Usage Summary
-  9. Registers Removed During Synthesis
- 10. General Register Statistics
- 11. Multiplexer Restructuring Statistics (Restructuring Performed)
- 12. Parameter Settings for User Entity Instance: counter:single_clock
- 13. Parameter Settings for User Entity Instance: counter:single_clock|d_flipflop:dff
- 14. Parameter Settings for User Entity Instance: register_file:reg_file|d_flipflop:register0
- 15. Parameter Settings for User Entity Instance: register_file:reg_file|d_flipflop:register1
- 16. Parameter Settings for User Entity Instance: register_file:reg_file|d_flipflop:register2
- 17. Parameter Settings for User Entity Instance: register_file:reg_file|d_flipflop:register3
- 18. Parameter Settings for User Entity Instance: register_file:reg_file|d_flipflop:register4
- 19. Parameter Settings for User Entity Instance: register_file:reg_file|d_flipflop:register5
- 20. Parameter Settings for User Entity Instance: register_file:reg_file|d_flipflop:register6
- 21. Parameter Settings for User Entity Instance: register_file:reg_file|d_flipflop:register7
- 22. Parameter Settings for User Entity Instance: program_counter:PC|d_flipflop:myDff
- 23. Port Connectivity Checks: "hexDisp:hex_display3"
- 24. Port Connectivity Checks: "hexDisp:hex_display2"
- 25. Port Connectivity Checks: "hexDisp:hex_display1"
- 26. Port Connectivity Checks: "hexDisp:hex_display0"
- 27. Port Connectivity Checks: "program_counter:PC|d_flipflop:myDff"
- 28. Port Connectivity Checks: "program_counter:PC"
- 29. Port Connectivity Checks: "register_file:reg_file|d_flipflop:register7"
- 30. Port Connectivity Checks: "register_file:reg_file|d_flipflop:register6"
- 31. Port Connectivity Checks: "register_file:reg_file|d_flipflop:register5"
- 32. Port Connectivity Checks: "register_file:reg_file|d_flipflop:register4"
- 33. Port Connectivity Checks: "register_file:reg_file|d_flipflop:register3"
- 34. Port Connectivity Checks: "register_file:reg_file|d_flipflop:register2"
- 35. Port Connectivity Checks: "register_file:reg_file|d_flipflop:register1"
- 36. Port Connectivity Checks: "counter:single_clock|d_flipflop:dff"
- 37. Port Connectivity Checks: "counter:single_clock"
- 38. Post-Synthesis Netlist Statistics for Top Partition
- 39. Elapsed Time Per Partition
- 40. Analysis & Synthesis Messages
+  9. General Register Statistics
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Parameter Settings for User Entity Instance: counter:single_clock
+ 12. Parameter Settings for User Entity Instance: counter:single_clock|d_flipflop:dff
+ 13. Parameter Settings for User Entity Instance: register_file:reg_file|d_flipflop:register0
+ 14. Parameter Settings for User Entity Instance: register_file:reg_file|d_flipflop:register1
+ 15. Parameter Settings for User Entity Instance: register_file:reg_file|d_flipflop:register2
+ 16. Parameter Settings for User Entity Instance: register_file:reg_file|d_flipflop:register3
+ 17. Parameter Settings for User Entity Instance: register_file:reg_file|d_flipflop:register4
+ 18. Parameter Settings for User Entity Instance: register_file:reg_file|d_flipflop:register5
+ 19. Parameter Settings for User Entity Instance: register_file:reg_file|d_flipflop:register6
+ 20. Parameter Settings for User Entity Instance: register_file:reg_file|d_flipflop:register7
+ 21. Parameter Settings for User Entity Instance: program_counter:PC|d_flipflop:myDff
+ 22. Port Connectivity Checks: "hexDisp:hex_display3"
+ 23. Port Connectivity Checks: "hexDisp:hex_display2"
+ 24. Port Connectivity Checks: "hexDisp:hex_display1"
+ 25. Port Connectivity Checks: "hexDisp:hex_display0"
+ 26. Port Connectivity Checks: "program_counter:PC|d_flipflop:myDff"
+ 27. Port Connectivity Checks: "program_counter:PC"
+ 28. Port Connectivity Checks: "counter:single_clock|d_flipflop:dff"
+ 29. Port Connectivity Checks: "counter:single_clock"
+ 30. Post-Synthesis Netlist Statistics for Top Partition
+ 31. Elapsed Time Per Partition
+ 32. Analysis & Synthesis Messages
 
 
 
@@ -72,13 +64,13 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Tue Mar 19 17:42:07 2024          ;
+; Analysis & Synthesis Status     ; Successful - Thu Mar 21 14:36:08 2024          ;
 ; Quartus Prime Version           ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                   ; Lab4                                           ;
 ; Top-level Entity Name           ; Lab4                                           ;
 ; Family                          ; Cyclone V                                      ;
 ; Logic utilization (in ALMs)     ; N/A                                            ;
-; Total registers                 ; 38                                             ;
+; Total registers                 ; 80                                             ;
 ; Total pins                      ; 46                                             ;
 ; Total virtual pins              ; 0                                              ;
 ; Total block memory bits         ; 0                                              ;
@@ -217,25 +209,25 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimate of Logic utilization (ALMs needed) ; 137       ;
+; Estimate of Logic utilization (ALMs needed) ; 202       ;
 ;                                             ;           ;
-; Combinational ALUT usage for logic          ; 207       ;
+; Combinational ALUT usage for logic          ; 277       ;
 ;     -- 7 input functions                    ; 4         ;
-;     -- 6 input functions                    ; 63        ;
-;     -- 5 input functions                    ; 37        ;
-;     -- 4 input functions                    ; 35        ;
-;     -- <=3 input functions                  ; 68        ;
+;     -- 6 input functions                    ; 123       ;
+;     -- 5 input functions                    ; 47        ;
+;     -- 4 input functions                    ; 21        ;
+;     -- <=3 input functions                  ; 82        ;
 ;                                             ;           ;
-; Dedicated logic registers                   ; 38        ;
+; Dedicated logic registers                   ; 80        ;
 ;                                             ;           ;
 ; I/O pins                                    ; 46        ;
 ;                                             ;           ;
 ; Total DSP Blocks                            ; 1         ;
 ;                                             ;           ;
-; Maximum fan-out node                        ; SW0~input ;
-; Maximum fan-out                             ; 40        ;
-; Total fan-out                               ; 1071      ;
-; Average fan-out                             ; 3.17      ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 80        ;
+; Total fan-out                               ; 1618      ;
+; Average fan-out                             ; 3.60      ;
 +---------------------------------------------+-----------+
 
 
@@ -244,18 +236,25 @@ https://fpgasoftware.intel.com/eula.
 +------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------+-----------------+--------------+
 ; Compilation Hierarchy Node   ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                               ; Entity Name     ; Library Name ;
 +------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------+-----------------+--------------+
-; |Lab4                        ; 207 (48)            ; 38 (0)                    ; 0                 ; 1          ; 46   ; 0            ; |Lab4                                             ; Lab4            ; work         ;
-;    |ALU:ALU_unit|            ; 45 (45)             ; 0 (0)                     ; 0                 ; 1          ; 0    ; 0            ; |Lab4|ALU:ALU_unit                                ; ALU             ; work         ;
-;    |counter:single_clock|    ; 58 (32)             ; 26 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |Lab4|counter:single_clock                        ; counter         ; work         ;
-;       |d_flipflop:dff|       ; 26 (26)             ; 26 (26)                   ; 0                 ; 0          ; 0    ; 0            ; |Lab4|counter:single_clock|d_flipflop:dff         ; d_flipflop      ; work         ;
+; |Lab4                        ; 277 (56)            ; 80 (0)                    ; 0                 ; 1          ; 46   ; 0            ; |Lab4                                             ; Lab4            ; work         ;
+;    |ALU:ALU_unit|            ; 42 (42)             ; 0 (0)                     ; 0                 ; 1          ; 0    ; 0            ; |Lab4|ALU:ALU_unit                                ; ALU             ; work         ;
+;    |counter:single_clock|    ; 45 (45)             ; 26 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |Lab4|counter:single_clock                        ; counter         ; work         ;
+;       |d_flipflop:dff|       ; 0 (0)               ; 26 (26)                   ; 0                 ; 0          ; 0    ; 0            ; |Lab4|counter:single_clock|d_flipflop:dff         ; d_flipflop      ; work         ;
 ;    |hexDisp:hex_display0|    ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Lab4|hexDisp:hex_display0                        ; hexDisp         ; work         ;
 ;    |hexDisp:hex_display1|    ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Lab4|hexDisp:hex_display1                        ; hexDisp         ; work         ;
-;    |hexDisp:hex_display2|    ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Lab4|hexDisp:hex_display2                        ; hexDisp         ; work         ;
-;    |hexDisp:hex_display3|    ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Lab4|hexDisp:hex_display3                        ; hexDisp         ; work         ;
-;    |program_counter:PC|      ; 10 (2)              ; 6 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Lab4|program_counter:PC                          ; program_counter ; work         ;
-;       |d_flipflop:myDff|     ; 8 (8)               ; 6 (6)                     ; 0                 ; 0          ; 0    ; 0            ; |Lab4|program_counter:PC|d_flipflop:myDff         ; d_flipflop      ; work         ;
-;    |register_file:reg_file|  ; 22 (14)             ; 6 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Lab4|register_file:reg_file                      ; register_file   ; work         ;
-;       |d_flipflop:register0| ; 8 (8)               ; 6 (6)                     ; 0                 ; 0          ; 0    ; 0            ; |Lab4|register_file:reg_file|d_flipflop:register0 ; d_flipflop      ; work         ;
+;    |hexDisp:hex_display2|    ; 9 (9)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Lab4|hexDisp:hex_display2                        ; hexDisp         ; work         ;
+;    |hexDisp:hex_display3|    ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Lab4|hexDisp:hex_display3                        ; hexDisp         ; work         ;
+;    |program_counter:PC|      ; 8 (1)               ; 6 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Lab4|program_counter:PC                          ; program_counter ; work         ;
+;       |d_flipflop:myDff|     ; 7 (7)               ; 6 (6)                     ; 0                 ; 0          ; 0    ; 0            ; |Lab4|program_counter:PC|d_flipflop:myDff         ; d_flipflop      ; work         ;
+;    |register_file:reg_file|  ; 96 (47)             ; 48 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |Lab4|register_file:reg_file                      ; register_file   ; work         ;
+;       |d_flipflop:register0| ; 6 (6)               ; 6 (6)                     ; 0                 ; 0          ; 0    ; 0            ; |Lab4|register_file:reg_file|d_flipflop:register0 ; d_flipflop      ; work         ;
+;       |d_flipflop:register1| ; 6 (6)               ; 6 (6)                     ; 0                 ; 0          ; 0    ; 0            ; |Lab4|register_file:reg_file|d_flipflop:register1 ; d_flipflop      ; work         ;
+;       |d_flipflop:register2| ; 6 (6)               ; 6 (6)                     ; 0                 ; 0          ; 0    ; 0            ; |Lab4|register_file:reg_file|d_flipflop:register2 ; d_flipflop      ; work         ;
+;       |d_flipflop:register3| ; 6 (6)               ; 6 (6)                     ; 0                 ; 0          ; 0    ; 0            ; |Lab4|register_file:reg_file|d_flipflop:register3 ; d_flipflop      ; work         ;
+;       |d_flipflop:register4| ; 6 (6)               ; 6 (6)                     ; 0                 ; 0          ; 0    ; 0            ; |Lab4|register_file:reg_file|d_flipflop:register4 ; d_flipflop      ; work         ;
+;       |d_flipflop:register5| ; 6 (6)               ; 6 (6)                     ; 0                 ; 0          ; 0    ; 0            ; |Lab4|register_file:reg_file|d_flipflop:register5 ; d_flipflop      ; work         ;
+;       |d_flipflop:register6| ; 7 (7)               ; 6 (6)                     ; 0                 ; 0          ; 0    ; 0            ; |Lab4|register_file:reg_file|d_flipflop:register6 ; d_flipflop      ; work         ;
+;       |d_flipflop:register7| ; 6 (6)               ; 6 (6)                     ; 0                 ; 0          ; 0    ; 0            ; |Lab4|register_file:reg_file|d_flipflop:register7 ; d_flipflop      ; work         ;
 +------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------+-----------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -272,48 +271,33 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------------------+-------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                                 ;
-+-----------------------------------------------------+--------------------------------------------------------------+
-; Register name                                       ; Reason for Removal                                           ;
-+-----------------------------------------------------+--------------------------------------------------------------+
-; register_file:reg_file|d_flipflop:register1|q[1..5] ; Merged with register_file:reg_file|d_flipflop:register1|q[0] ;
-; register_file:reg_file|d_flipflop:register2|q[0..5] ; Merged with register_file:reg_file|d_flipflop:register1|q[0] ;
-; register_file:reg_file|d_flipflop:register3|q[0..5] ; Merged with register_file:reg_file|d_flipflop:register1|q[0] ;
-; register_file:reg_file|d_flipflop:register4|q[0..5] ; Merged with register_file:reg_file|d_flipflop:register1|q[0] ;
-; register_file:reg_file|d_flipflop:register5|q[0..5] ; Merged with register_file:reg_file|d_flipflop:register1|q[0] ;
-; register_file:reg_file|d_flipflop:register6|q[0..5] ; Merged with register_file:reg_file|d_flipflop:register1|q[0] ;
-; register_file:reg_file|d_flipflop:register7|q[0..5] ; Merged with register_file:reg_file|d_flipflop:register1|q[0] ;
-; register_file:reg_file|d_flipflop:register1|q[0]    ; Stuck at GND due to stuck port data_in                       ;
-; Total Number of Removed Registers = 42              ;                                                              ;
-+-----------------------------------------------------+--------------------------------------------------------------+
-
-
 +------------------------------------------------------+
 ; General Register Statistics                          ;
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 38    ;
-; Number of registers using Synchronous Clear  ; 6     ;
+; Total registers                              ; 80    ;
+; Number of registers using Synchronous Clear  ; 80    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 11    ;
+; Number of registers using Clock Enable       ; 0     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                              ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output    ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------+
-; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |Lab4|program_counter:PC|comb ;
-; 9:1                ; 3 bits    ; 18 LEs        ; 15 LEs               ; 3 LEs                  ; No         ; |Lab4|Mux14                   ;
-; 9:1                ; 6 bits    ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; No         ; |Lab4|ALU:ALU_unit|Mux0       ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |Lab4|Mux15                   ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------+
+; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |Lab4|program_counter:PC|comb      ;
+; 8:1                ; 6 bits    ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; No         ; |Lab4|register_file:reg_file|Mux11 ;
+; 8:1                ; 6 bits    ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; No         ; |Lab4|register_file:reg_file|Mux0  ;
+; 9:1                ; 6 bits    ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; No         ; |Lab4|ALU:ALU_unit|Mux0            ;
+; 15:1               ; 3 bits    ; 30 LEs        ; 27 LEs               ; 3 LEs                  ; No         ; |Lab4|Mux12                        ;
+; 15:1               ; 3 bits    ; 30 LEs        ; 27 LEs               ; 3 LEs                  ; No         ; |Lab4|Mux17                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------+
 
 
 +-------------------------------------------------------------------+
@@ -482,69 +466,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 +---------+--------+----------+------------------------------------------------------------------------------------------------------------------------------+
 
 
-+-------------------------------------------------------------------------+
-; Port Connectivity Checks: "register_file:reg_file|d_flipflop:register7" ;
-+------+-------+----------+-----------------------------------------------+
-; Port ; Type  ; Severity ; Details                                       ;
-+------+-------+----------+-----------------------------------------------+
-; en   ; Input ; Info     ; Stuck at GND                                  ;
-+------+-------+----------+-----------------------------------------------+
-
-
-+-------------------------------------------------------------------------+
-; Port Connectivity Checks: "register_file:reg_file|d_flipflop:register6" ;
-+------+-------+----------+-----------------------------------------------+
-; Port ; Type  ; Severity ; Details                                       ;
-+------+-------+----------+-----------------------------------------------+
-; en   ; Input ; Info     ; Stuck at GND                                  ;
-+------+-------+----------+-----------------------------------------------+
-
-
-+-------------------------------------------------------------------------+
-; Port Connectivity Checks: "register_file:reg_file|d_flipflop:register5" ;
-+------+-------+----------+-----------------------------------------------+
-; Port ; Type  ; Severity ; Details                                       ;
-+------+-------+----------+-----------------------------------------------+
-; en   ; Input ; Info     ; Stuck at GND                                  ;
-+------+-------+----------+-----------------------------------------------+
-
-
-+-------------------------------------------------------------------------+
-; Port Connectivity Checks: "register_file:reg_file|d_flipflop:register4" ;
-+------+-------+----------+-----------------------------------------------+
-; Port ; Type  ; Severity ; Details                                       ;
-+------+-------+----------+-----------------------------------------------+
-; en   ; Input ; Info     ; Stuck at GND                                  ;
-+------+-------+----------+-----------------------------------------------+
-
-
-+-------------------------------------------------------------------------+
-; Port Connectivity Checks: "register_file:reg_file|d_flipflop:register3" ;
-+------+-------+----------+-----------------------------------------------+
-; Port ; Type  ; Severity ; Details                                       ;
-+------+-------+----------+-----------------------------------------------+
-; en   ; Input ; Info     ; Stuck at GND                                  ;
-+------+-------+----------+-----------------------------------------------+
-
-
-+-------------------------------------------------------------------------+
-; Port Connectivity Checks: "register_file:reg_file|d_flipflop:register2" ;
-+------+-------+----------+-----------------------------------------------+
-; Port ; Type  ; Severity ; Details                                       ;
-+------+-------+----------+-----------------------------------------------+
-; en   ; Input ; Info     ; Stuck at GND                                  ;
-+------+-------+----------+-----------------------------------------------+
-
-
-+-------------------------------------------------------------------------+
-; Port Connectivity Checks: "register_file:reg_file|d_flipflop:register1" ;
-+------+-------+----------+-----------------------------------------------+
-; Port ; Type  ; Severity ; Details                                       ;
-+------+-------+----------+-----------------------------------------------+
-; en   ; Input ; Info     ; Stuck at GND                                  ;
-+------+-------+----------+-----------------------------------------------+
-
-
 +-----------------------------------------------------------------+
 ; Port Connectivity Checks: "counter:single_clock|d_flipflop:dff" ;
 +------+-------+----------+---------------------------------------+
@@ -569,31 +490,29 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 38                          ;
-;     ENA               ; 6                           ;
-;     ENA SCLR          ; 5                           ;
-;     SCLR              ; 1                           ;
-;     plain             ; 26                          ;
-; arriav_lcell_comb     ; 211                         ;
+; arriav_ff             ; 80                          ;
+;     SCLR              ; 80                          ;
+; arriav_lcell_comb     ; 280                         ;
 ;     arith             ; 38                          ;
 ;         1 data inputs ; 29                          ;
+;         3 data inputs ; 3                           ;
 ;         4 data inputs ; 3                           ;
-;         5 data inputs ; 6                           ;
+;         5 data inputs ; 3                           ;
 ;     extend            ; 4                           ;
 ;         7 data inputs ; 4                           ;
-;     normal            ; 169                         ;
+;     normal            ; 238                         ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 3                           ;
-;         2 data inputs ; 25                          ;
-;         3 data inputs ; 14                          ;
-;         4 data inputs ; 32                          ;
-;         5 data inputs ; 31                          ;
-;         6 data inputs ; 63                          ;
+;         1 data inputs ; 2                           ;
+;         2 data inputs ; 22                          ;
+;         3 data inputs ; 28                          ;
+;         4 data inputs ; 18                          ;
+;         5 data inputs ; 44                          ;
+;         6 data inputs ; 123                         ;
 ; arriav_mac            ; 1                           ;
 ; boundary_port         ; 46                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 9.50                        ;
-; Average LUT depth     ; 5.26                        ;
+; Max LUT depth         ; 9.40                        ;
+; Average LUT depth     ; 6.42                        ;
 +-----------------------+-----------------------------+
 
 
@@ -602,7 +521,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -612,7 +531,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
-    Info: Processing started: Tue Mar 19 17:42:00 2024
+    Info: Processing started: Thu Mar 21 14:36:00 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Lab4 -c Lab4
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
@@ -652,19 +571,18 @@ Warning (12241): 6 hierarchies have connectivity warnings - see the Connectivity
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "LED[6]" is stuck at GND File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 24
     Warning (13410): Pin "LED[7]" is stuck at GND File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 24
-    Warning (13410): Pin "HEX02[2]" is stuck at GND File: /home/xujus/Documents/Spring2024/EEE333/Lab/Lab4/Lab_4_SV_HDL/Lab4.sv Line: 27
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 254 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 324 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 10 input pins
     Info (21059): Implemented 36 output pins
-    Info (21061): Implemented 207 logic cells
+    Info (21061): Implemented 277 logic cells
     Info (21062): Implemented 1 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 10 warnings
-    Info: Peak virtual memory: 532 megabytes
-    Info: Processing ended: Tue Mar 19 17:42:07 2024
-    Info: Elapsed time: 00:00:07
-    Info: Total CPU time (on all processors): 00:00:20
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 9 warnings
+    Info: Peak virtual memory: 531 megabytes
+    Info: Processing ended: Thu Mar 21 14:36:08 2024
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:28
 
 

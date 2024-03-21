@@ -59,42 +59,42 @@ SW7 => Mux3.IN2
 SW7 => Mux4.IN2
 SW7 => Mux5.IN2
 KEY0 => enable_clock.IN1
-LED[0] << address[0].DB_MAX_OUTPUT_PORT_TYPE
-LED[1] << address[1].DB_MAX_OUTPUT_PORT_TYPE
-LED[2] << address[2].DB_MAX_OUTPUT_PORT_TYPE
-LED[3] << address[3].DB_MAX_OUTPUT_PORT_TYPE
-LED[4] << address[4].DB_MAX_OUTPUT_PORT_TYPE
-LED[5] << address[5].DB_MAX_OUTPUT_PORT_TYPE
-LED[6] << <GND>
-LED[7] << <GND>
-HEX00[0] << hexDisp:hex_display0.hex
-HEX00[1] << hexDisp:hex_display0.hex
-HEX00[2] << hexDisp:hex_display0.hex
-HEX00[3] << hexDisp:hex_display0.hex
-HEX00[4] << hexDisp:hex_display0.hex
-HEX00[5] << hexDisp:hex_display0.hex
-HEX00[6] << hexDisp:hex_display0.hex
-HEX01[0] << hexDisp:hex_display1.hex
-HEX01[1] << hexDisp:hex_display1.hex
-HEX01[2] << hexDisp:hex_display1.hex
-HEX01[3] << hexDisp:hex_display1.hex
-HEX01[4] << hexDisp:hex_display1.hex
-HEX01[5] << hexDisp:hex_display1.hex
-HEX01[6] << hexDisp:hex_display1.hex
-HEX02[0] << hexDisp:hex_display2.hex
-HEX02[1] << hexDisp:hex_display2.hex
-HEX02[2] << hexDisp:hex_display2.hex
-HEX02[3] << hexDisp:hex_display2.hex
-HEX02[4] << hexDisp:hex_display2.hex
-HEX02[5] << hexDisp:hex_display2.hex
-HEX02[6] << hexDisp:hex_display2.hex
-HEX03[0] << hexDisp:hex_display3.hex
-HEX03[1] << hexDisp:hex_display3.hex
-HEX03[2] << hexDisp:hex_display3.hex
-HEX03[3] << hexDisp:hex_display3.hex
-HEX03[4] << hexDisp:hex_display3.hex
-HEX03[5] << hexDisp:hex_display3.hex
-HEX03[6] << hexDisp:hex_display3.hex
+LED[0] <= address[0].DB_MAX_OUTPUT_PORT_TYPE
+LED[1] <= address[1].DB_MAX_OUTPUT_PORT_TYPE
+LED[2] <= address[2].DB_MAX_OUTPUT_PORT_TYPE
+LED[3] <= address[3].DB_MAX_OUTPUT_PORT_TYPE
+LED[4] <= address[4].DB_MAX_OUTPUT_PORT_TYPE
+LED[5] <= address[5].DB_MAX_OUTPUT_PORT_TYPE
+LED[6] <= <GND>
+LED[7] <= <GND>
+HEX00[0] <= hexDisp:hex_display0.hex
+HEX00[1] <= hexDisp:hex_display0.hex
+HEX00[2] <= hexDisp:hex_display0.hex
+HEX00[3] <= hexDisp:hex_display0.hex
+HEX00[4] <= hexDisp:hex_display0.hex
+HEX00[5] <= hexDisp:hex_display0.hex
+HEX00[6] <= hexDisp:hex_display0.hex
+HEX01[0] <= hexDisp:hex_display1.hex
+HEX01[1] <= hexDisp:hex_display1.hex
+HEX01[2] <= hexDisp:hex_display1.hex
+HEX01[3] <= hexDisp:hex_display1.hex
+HEX01[4] <= hexDisp:hex_display1.hex
+HEX01[5] <= hexDisp:hex_display1.hex
+HEX01[6] <= hexDisp:hex_display1.hex
+HEX02[0] <= hexDisp:hex_display2.hex
+HEX02[1] <= hexDisp:hex_display2.hex
+HEX02[2] <= hexDisp:hex_display2.hex
+HEX02[3] <= hexDisp:hex_display2.hex
+HEX02[4] <= hexDisp:hex_display2.hex
+HEX02[5] <= hexDisp:hex_display2.hex
+HEX02[6] <= hexDisp:hex_display2.hex
+HEX03[0] <= hexDisp:hex_display3.hex
+HEX03[1] <= hexDisp:hex_display3.hex
+HEX03[2] <= hexDisp:hex_display3.hex
+HEX03[3] <= hexDisp:hex_display3.hex
+HEX03[4] <= hexDisp:hex_display3.hex
+HEX03[5] <= hexDisp:hex_display3.hex
+HEX03[6] <= hexDisp:hex_display3.hex
 
 
 |Lab4|IR:instruction_register
@@ -272,8 +272,11 @@ q[25] <= q[25]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 |Lab4|register_file:reg_file
 op[0] => LessThan0.IN6
+op[0] => Equal0.IN2
 op[1] => LessThan0.IN5
+op[1] => Equal0.IN1
 op[2] => LessThan0.IN4
+op[2] => Equal0.IN0
 RA[0] => Mux0.IN2
 RA[0] => Mux1.IN2
 RA[0] => Mux2.IN2
@@ -759,15 +762,15 @@ d[5] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |Lab4|program_counter:PC
-op[0] => LessThan0.IN6
-op[0] => Equal0.IN1
-op[0] => Equal1.IN2
-op[1] => LessThan0.IN5
-op[1] => Equal0.IN2
-op[1] => Equal1.IN1
-op[2] => LessThan0.IN4
+op[0] => Equal0.IN2
+op[0] => Equal1.IN1
+op[0] => Equal2.IN2
+op[1] => Equal0.IN1
+op[1] => Equal1.IN2
+op[1] => Equal2.IN1
 op[2] => Equal0.IN0
 op[2] => Equal1.IN0
+op[2] => Equal2.IN0
 jump_addr[0] => comb.DATAB
 jump_addr[1] => comb.DATAB
 jump_addr[2] => comb.DATAB
