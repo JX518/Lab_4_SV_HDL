@@ -45,7 +45,7 @@ module Lab4
    logic [11:0] display;	
    logic [11:0] display_register;
 	
-	(* ram_init_file = "Lab4.mif" *) logic [11:0] mem[63:0];
+	(* ram_init_file = "microprocessor.mif" *) logic [11:0] mem[63:0];
 
 	assign instruction = mem[address];
  	assign enable_clock = SW1 ? 

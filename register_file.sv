@@ -33,7 +33,7 @@ module register_file(
    	logic	    write;
    
     
-   	assign write = debug_en & (op < 3'b101); //debug enable allows for set clocking speeds
+   	assign write = debug_en & (op < 3'b101) & !(op == 3'b000); //debug enable allows for set clocking speeds
    	assign enable = {write, write, write, write, write, write, write, write} & write_to; //and it so that we canwrite,  make sure its only writing on write en
    
    // decoder for write enable

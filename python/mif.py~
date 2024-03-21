@@ -1,0 +1,35 @@
+def decToOct(n):
+    octal = str(oct(n))
+    return(octal[2:])
+
+def octToDec(n):
+    return(int(str(n),8))
+
+r2 = 0
+#0
+r0 = octToDec(12)
+#1
+r7 = octToDec(5) + r0
+#2
+r7 = r0 + r7
+#3
+r2 = (r0*r7)%63
+while r7 < r2:
+    #2
+    r7 = r0 + r7
+    #3
+    r2 = (r0*r7)%63 #mod by 63 because 6'b111111 = 63
+
+    #4
+        #jump
+    #5
+        #halt
+    #6
+        #compj
+    #7
+        #jump
+    #8
+        #halt
+    #9
+input("\nPress <ENTER> to Continue")
+print("reg \tdec \toct", "\n$0", "\t", r0, "\t", decToOct(r0), "\n$2", "\t", r2, "\t", decToOct(r2), "\n$7", "\t", r7, "\t", decToOct(r7))

@@ -13,14 +13,11 @@ module program_counter
    logic 	jump;
    logic [6:0] cnt_nxt;
 
-   assign jump = (op > 3'b110) || (op == 3'b101) || (op == 3'b000); // handles jump
+   assign jump = (op == 3'd6) | (op == 3'd5) | (op == 3'd0); // handles jump (jump, compj, halt)
    assign cnt_nxt = (address == 6'd63) ? 6'd63 : address + 1'b1; // handles count + 1
 
    d_flipflop #(6) myDff( 
-	.d((jump)? 
-		jump_addr:
-		cnt_nxt
-	  ), 
+	.d( jump ? jump_addr : cnt_nxt ), 
 	.clk(clk), 
 	.rst(rst), 
 	.en(en), 

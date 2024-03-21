@@ -1,10 +1,10 @@
-Analysis & Synthesis Status : Successful - Tue Mar 19 17:42:07 2024
+Analysis & Synthesis Status : Successful - Thu Mar 21 14:36:08 2024
 Quartus Prime Version : 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 Revision Name : Lab4
 Top-level Entity Name : Lab4
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 38
+Total registers : 80
 Total pins : 46
 Total virtual pins : 0
 Total block memory bits : 0
